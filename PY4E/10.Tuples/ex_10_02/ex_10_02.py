@@ -8,3 +8,22 @@ try:
 except:
     print('File cannot be opened:', fname)
     exit()
+    
+    
+many = dict()
+
+for line in fhand:
+    line = line.rstrip()
+    if not line.startswith('From '):
+        continue
+    words = line.split()
+    time = words[5]
+    hour = time.split(':')[0]
+    many[hour] = many.get(hour, 0) + 1
+    
+sorted = sorted(many.items())
+for hour,count in sorted:
+    print(hour,count)
+    
+
+    
