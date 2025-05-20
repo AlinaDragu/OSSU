@@ -4,7 +4,6 @@
 # Preferred: Modify the socket1.py program to retrieve the above URL and print out the headers and data. Make sure to change the code to retrieve the above URL - the values are different for each URL.
 # Open the URL in a web browser with a developer console or FireBug and manually examine the headers that are returned.
 
-
 import socket
 
 mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
