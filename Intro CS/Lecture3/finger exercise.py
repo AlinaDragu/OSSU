@@ -2,7 +2,6 @@
 # You can use either a while loop or a for loop.
 
 
-
 N = 5
 L = 0
 
