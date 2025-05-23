@@ -5,5 +5,5 @@
 N = 5
 
 for i in range(N):
-    print('hello')
-    print('world')
+    print('hello world')
+    
