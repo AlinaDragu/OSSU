@@ -3,9 +3,7 @@
 
 
 N = 5
-L = 0
 
-while L < N :
-    print('Hello')
-    print('World')
-    L += 1
+for i in range(N):
+    print('hello')
+    print('world')
