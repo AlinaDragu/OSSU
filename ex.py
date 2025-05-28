@@ -63,9 +63,28 @@
 #5. count until 5
 # Use a while loop to count from 1 to 5 and print each number
 
-y = 1
+# y = 1
 
-while y <= 5:
-    print(y)
-    y += 1
+# while y <= 5:
+#     print(y)
+#     y += 1
+
+
+#6. password checker
+#Ask the user to enter the correct password.
+# Keep asking until they get it right.
+# correct_password = "open123"
+# Keep asking: "Enter password: "
+# Stop only when it's correct
+
+
+correct_password = "open123"
+password =""
+
+while password != correct_password:
+    password = input('Enter password: ')
+    if password != correct_password:
+        print("incorrect")
+print("correct")
+    
     
