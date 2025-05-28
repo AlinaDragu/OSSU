@@ -16,3 +16,15 @@ i = 0
 for i in range(2,21):
     if i % 2 == 0 :
         print(i)
+        
+        
+
+#3. print each letter in a word
+
+word = input("Type your word here: ")
+
+for w in word :
+    print(w)
+    
+    
+    
