@@ -97,3 +97,4 @@ while com != command:
     com = input('Type a command: ')
     if com == command:
         print("Goodbye!")
+ 
