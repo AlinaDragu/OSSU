@@ -13,4 +13,3 @@ for i in range(10):
 print(y == 1)
 
 print(y, '==', 10*0.1)
-
