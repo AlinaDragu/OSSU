@@ -5,7 +5,9 @@
 my_str = 'abcdefg'
 s = ''
 
-for i in range(0,len(my_str),2):
-    s += my_str[i]
+for i in range(0,len(my_str),2): #start a for loop where i takes values from 0 to len(my_str) - 1, stepping by 2 ;  range(0, 7, 2) produces: [0, 2, 4, 6]
+
+    s += my_str[i]   #For each even index i, this line takes the character my_str[i] and adds it to the string s.
+    
 
 print(s)
