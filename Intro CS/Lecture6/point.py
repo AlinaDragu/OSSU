@@ -8,7 +8,7 @@ high = 10
 guess = (high + low)/2
 
 while abs(guess**2 - x) >= epsilon:
-    #print(f'low = {str(low)} high = {str(high)} guess = {str(guess)}')
+    print(f'low = {str(low)} high = {str(high)} guess = {str(guess)}')
     if guess**2 < x:
         low = guess
     else:
