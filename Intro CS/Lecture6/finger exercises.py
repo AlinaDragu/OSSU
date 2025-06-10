@@ -7,7 +7,6 @@ N = int(input("Enter a number between 0 and 1000: "))
 low = 0
 high = 1000
 
-
 for count in range(1,21):
     guess = (low + high) // 2
     if guess == N:
