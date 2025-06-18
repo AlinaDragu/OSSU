@@ -7,6 +7,8 @@ def eval_quadratic(a, b, c, x):
     # Returns the value of the quadratic a×x² + b×x + c.
     # """
     # Your code here
+    return a * x**2 + b * x + c
+
 
 # Examples:    
 print(eval_quadratic(1, 1, 1, 1)) # prints 3
@@ -23,6 +25,7 @@ def two_quadratics(a1, b1, c1, x1, a2, b2, c2, x2):
     # Prints the sum of the two evaluations. Does not return anything.
     # """
     # Your code here
+    
 
 # Examples:    
 two_quadratics(1, 1, 1, 1, 1, 1, 1, 1) # prints 6
