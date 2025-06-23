@@ -1,4 +1,4 @@
-Implement the function that meets the specifications below:
+# Implement the function that meets the specifications below:
 
 def same_chars(s1, s2):
     # """
