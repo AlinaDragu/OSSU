@@ -3,6 +3,7 @@
 # The code prints two lines: count: with how many guesses it took to find N, and answer: with the value of N.
 # Hints: If the halfway value is exactly in between two integers, choose the smaller one.
 
+
 N = int(input("Enter a number between 0 and 1000: ")) 
 low = 0
 high = 1000
