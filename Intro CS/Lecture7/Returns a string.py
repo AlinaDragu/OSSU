@@ -20,11 +20,11 @@ print(keep_consonants("babas"))  # prints bbs
 
 #  2. Write code that satisfies the following specs:
 def first_to_last_diff(s, c):
-    # """ s is a string, c is single character string
-    #     Returns the difference between the index where c first
-    #     occurs and the index where c last occurs. If c does not 
-    #     occur in s, returns -1. 
-    # """
+    """ s is a string, c is single character string
+        Returns the difference between the index where c first
+        occurs and the index where c last occurs. If c does not 
+        occur in s, returns -1. 
+    """
     # your code here
     if c not in s:
         return -1

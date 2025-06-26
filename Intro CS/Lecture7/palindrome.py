@@ -1,9 +1,9 @@
 # Write code that satisfies the following specification:
 # Hint, use paper and pen for a strategy before coding!
 def is_palindrome(s):
-    # """ s is a string
-    # Returns True if s is a palindrome and False otherwise
-    # """
+    """ s is a string
+    Returns True if s is a palindrome and False otherwise
+    """
        
     for i in range(len(s)//2):
         if s[i] != s[len(s)-i-1]:
