@@ -1,9 +1,9 @@
 ############## YOU TRY IT ###################
 # Write code that satisfies the following specification:
 def div_by(n, d):
-    # """ n and d are ints > 0
-    #     Returns True if d divides n evenly and False otherwise 
-    # """
+    """ n and d are ints > 0
+        Returns True if d divides n evenly and False otherwise 
+    """
     if n % d == 0:
         return True
     else:
