@@ -27,7 +27,7 @@ def count_nums_with_sqrt_close_to (n, epsilon):
         Returns how many integers have a square root within epsilon of n 
     """
     count = 0
-    # So we reverse the sqrt range to get the range of i values
+    # we reverse the sqrt range to get the range of i values
     start = int((n - epsilon)**2)
     end = int((n + epsilon)**2) + 1   #+1 because range end is exclusive
     for i in range(start, end):
