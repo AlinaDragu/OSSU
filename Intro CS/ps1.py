@@ -46,14 +46,23 @@
 
 
 #### Part B: Saving with a raise
+# In Part A, we assumed that your salary did not change over time. However, you are an MIT graduate, and clearly you are going to be worth more to your
+# company over time! In this part, we will build on your solution to Part A by adding a salary raise every six months. Copy over your solution from Part A
+# into the corresponding sections in ps1b.py.
 
+# User Inputs. There is one additional user input in Part B. Remember to cast these inputs as floats and in the following order before declaring other
+# variables.
+# 1. The starting yearly salary ( yearly_salary)
+# 2. The portion of salary to be saved ( portion_saved)
+# 3. The cost of your dream home ( cost_of_dream_home)
+# 4. The semi-annual salary raise ( semi_annual_raise), which is a decimal percentage (e.g. 0.1 for 10%)
 
+# Writing the Program. Write a program to calculate how many months it will take for you to save up for a down payment. You can reuse much of the
+# code from Part A. Like before, assume that your investments earn an annual rate of return r = 0.05 (or 5%) and that portion_down_payment =
+# 0.25 (or 25%). In this version, yearly_salary increases by semi_annual_raise at the end of every six months.
 
-
-
-
-
-
+# Output.
+# 1. Like Part A, your program should store the number of months required to save up for your down payment using a variable called months.
 
 
 
