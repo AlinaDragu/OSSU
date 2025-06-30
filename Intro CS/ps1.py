@@ -24,3 +24,38 @@
 # Output.
 # 1. Your program should store the number of months required to save for the down payment using a variable called months.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Part B: Saving with a raise
+
+
+
+
+
+
+
+
+
+
+
+
+
