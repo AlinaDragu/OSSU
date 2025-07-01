@@ -68,3 +68,10 @@
 
 
 
+
+
+
+
+
+
+#  Part C: Choosing an Interest Rate
