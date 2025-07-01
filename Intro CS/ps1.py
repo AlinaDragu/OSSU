@@ -75,3 +75,24 @@
 
 
 #  Part C: Choosing an Interest Rate
+# In Part A and B, you explored how (1) the percentage of your salary saved each month and (2) a semi-annual raise affects how long it takes to save for a
+# down payment given a fixed rate of return, r.
+# In Part C, we will have a fixed initial amount and the ability to choose a value for the rate of return, r. Given an initial deposit amount, our goal is to find
+# the lowest rate of return that enables us to save enough money for the down payment in 3 years.
+
+# User Inputs. Cast the user input as a float in the beginning of your program.
+# 1. The initial amount in your savings account ( initial_deposit)
+
+# Writing the Program. Write a program to calculate the minimum rate of return r needed in order to reach your goal of a sufficient down payment in 3
+# years, given an initial_deposit. To simplify things, assume:
+# 1. The cost of the house that you are saving for is $800,000.
+# 2. The down payment is 25% of the cost of the house.
+
+# Use the following formula for compound interest in order to calculate the predicted savings amount given a rate of return r, an initial_deposit, and
+# months: 
+# amount_saved = initial_deposit × (1 + r/12 ) months
+# You will use bisection search to determine the lowest rate of return r that is needed to achieve a down payment on a $800,000 house in 36 months.
+# Since hitting this exact amount is a bit of a challenge, we only require that your savings be within $100 of the required down payment. For example, if
+# the down payment is $1000, the total amount saved should be between $900 and $1100 (exclusive).
+# Your bisection search should update the value of r until it represents the lowest rate of return that allows you to save enough for the down payment in 3
+# years. r should be a float (e.g. 0.0704 for 7.04%). Assume that r lies somewhere between 0% and 100% (inclusive).
