@@ -34,20 +34,14 @@ amount_saved = 0.0
 monthly_salary = yearly_salary / 12
 down_payment = cost_of_dream_home * portion_down_payment
 
+months = 0
+for month in range(1, 1000):
+    amount_saved += amount_saved * (r / 12) + (monthly_salary * portion_saved)
+    if amount_saved >= down_payment:
+        months = month
+        break
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(f"Number of months: {months}")
 
 
 
@@ -72,7 +66,28 @@ down_payment = cost_of_dream_home * portion_down_payment
 # Output.
 # 1. Like Part A, your program should store the number of months required to save up for your down payment using a variable called months.
 
+yearly_salary = float(input("Enter your starting yearly salary: "))
+portion_saved = float(input("Enter the percent of your salary to save, as a decimal: "))
+cost_of_dream_home = float(input("Enter the cost of your dream home: "))
+semi_annual_raise = float(input("Enter the semi-annual raise, as a decimal: "))
 
+portion_down_payment = 0.25
+r = 0.05
+amount_saved = 0.0
+monthly_salary = yearly_salary / 12
+down_payment = cost_of_dream_home * portion_down_payment
+
+months = 0
+for month in range(1, 1000):
+    if month % 6 == 1 and month != 1:  # Apply raise every 6 months
+        yearly_salary += yearly_salary * semi_annual_raise
+        monthly_salary = yearly_salary / 12
+    amount_saved += amount_saved * (r / 12) + (monthly_salary * portion_saved)
+    if amount_saved >= down_payment:
+        months = month
+        break
+
+print(f"Number of months: {months}")
 
 
 
