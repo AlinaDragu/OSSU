@@ -91,12 +91,6 @@ print(f"Number of months: {months}")
 
 
 
-
-
-
-
-
-
 #  Part C: Choosing an Interest Rate
 # In Part A and B, you explored how (1) the percentage of your salary saved each month and (2) a semi-annual raise affects how long it takes to save for a
 # down payment given a fixed rate of return, r.
@@ -119,3 +113,34 @@ print(f"Number of months: {months}")
 # the down payment is $1000, the total amount saved should be between $900 and $1100 (exclusive).
 # Your bisection search should update the value of r until it represents the lowest rate of return that allows you to save enough for the down payment in 3
 # years. r should be a float (e.g. 0.0704 for 7.04%). Assume that r lies somewhere between 0% and 100% (inclusive).
+
+initial_deposit = float(input("Enter your initial deposit: "))
+
+total_cost = 800000
+portion_down_payment = 0.25
+down_payment = total_cost * portion_down_payment
+months = 36
+epsilon = 100
+low = 0.0
+high = 1.0
+steps = 0
+found = False
+
+for _ in range(100):  # max 100 steps to find the best r
+    r = (low + high) / 2
+    amount_saved = initial_deposit * ((1 + r / 12) ** months)
+    steps += 1
+
+    if abs(amount_saved - down_payment) < epsilon:
+        found = True
+        break
+    elif amount_saved < down_payment:
+        low = r
+    else:
+        high = r
+
+if found:
+    print(f"Best savings rate: {r:.5f}")
+    print(f"Steps in bisection search: {steps}")
+else:
+    print("It is not possible to pay the down payment in 3 years.")
