@@ -7,6 +7,7 @@ def same_chars(s1, s2):
     versa. If a character only exists in one of s1 or s2, returns False.
     """
     # Your code here
+    return set(s1) == set(s2)
 
 # Examples:
 print(same_chars("abc", "cab"))     # prints True
