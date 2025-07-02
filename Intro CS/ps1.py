@@ -24,7 +24,15 @@
 # Output.
 # 1. Your program should store the number of months required to save for the down payment using a variable called months.
 
+yearly_salary = float(input("Enter your starting yearly salary: "))
+portion_saved = float(input("Enter the percent of your salary to save, as a decimal: "))
+cost_of_dream_home = float(input("Enter the cost of your dream home: "))
 
+portion_down_payment = 0.25
+r = 0.05
+amount_saved = 0.0
+monthly_salary = yearly_salary / 12
+down_payment = cost_of_dream_home * portion_down_payment
 
 
 
