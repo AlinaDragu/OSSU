@@ -21,6 +21,7 @@ def bisection_root(x):
         ans = (high + low) / 2.0
     return ans
 
+
 def count_nums_with_sqrt_close_to (n, epsilon):
     """ n is an int > 2
         epsilon is a positive number < 1
