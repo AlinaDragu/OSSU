@@ -1,0 +1,14 @@
+def apply(criteria,n):
+    """ criteria is a function that takes in a number and returns a Boolean
+        n is an int
+    Returns how many ints from 0 to n (inclusive) match the criteria 
+    (i.e. return True when criteria is applied to them)
+    """ 
+    # your code here
+
+
+def is_even(x):
+    return x%2==0
+
+how_many = apply(is_even,10)
+# print(how_many)
