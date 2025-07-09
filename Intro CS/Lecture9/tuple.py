@@ -6,7 +6,14 @@ def char_counts(s):
     is the number of consonants in s 
     """
     # your code here
-
-
-# print(char_counts("abcd"))  # prints (1,3)
-# print(char_counts("zcght"))  # prints (0,5)
+    vowels = 'aeiou'
+    (c,v) = (0,0)
+    for char in s :
+        #char is 'a' then 'b' then 'c'
+        if char in vowels : #vowels count
+            v += 1
+        else: #cons count
+            c +=1
+    return (v,c)
+print(char_counts("abcd"))  # prints (1,3)
+print(char_counts("zcght"))  # prints (0,5)
