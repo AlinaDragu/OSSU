@@ -11,6 +11,7 @@ def all_true(n, Lf):
             flag = False
             break
     return flag
+
 # Examples:    
 # all_true() # prints 6
 is_even = lambda x: x % 2 == 0
