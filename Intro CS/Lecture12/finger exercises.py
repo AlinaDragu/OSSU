@@ -7,10 +7,10 @@ def count_sqrts(nums_list):
     Returns how many elements in nums_list are exact squares of elements in the same list, including itself.
     """
     # Your code here
-    nums_set = set(nums_list)  # define a function that takes a list of numbers
+    nums_set = set(nums_list)  # convert the list to a set for faster lookups
     count = 0
     for num in nums_list:
-        root = math.isqrt(num)
+        root = math.isqrt(num)  # get the integer square root of the number
         if root * root == num and root in nums_set:
             count += 1
     return count
