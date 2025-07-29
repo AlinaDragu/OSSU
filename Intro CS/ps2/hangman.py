@@ -1,7 +1,4 @@
 # Problem Set 2, hangman.py
-# Name:
-# Collaborators:
-# Time spent:
 
 import random
 import string

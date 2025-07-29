@@ -6,7 +6,6 @@ def remove_elem(L, e):
     but without any elements equal to e. 
     """
     # your code here
-    
     newlist = []
     for i in L:
         # i is 1 then 2 then 2 then 2
