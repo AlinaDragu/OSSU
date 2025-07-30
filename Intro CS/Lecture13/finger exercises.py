@@ -10,6 +10,7 @@ def sum_str_lengths(L):
     """
     # Your code here  
 
+
 # Examples:
 print(sum_str_lengths(["abcd", ["e", "fg"]]))  # prints 7
 print(sum_str_lengths([12, ["e", "fg"]]))      # raises ValueError
