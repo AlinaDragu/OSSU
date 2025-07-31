@@ -5,12 +5,13 @@ def all_true(n, Lf):
     with n as a parameter. Otherwise returns False. 
     """
     # Your code here
-    flag = True
-    for f in Lf:
-        if not f(n):
-            flag = False
-            break
-    return flag
+    for func in Lf:
+        # If any function call returns False...
+        if not func(n):
+            # ...immediately return False
+            return False
+    # If the loop completes, it means all functions returned True  
+    return True
 
 # Examples:    
 # all_true() # prints 6
