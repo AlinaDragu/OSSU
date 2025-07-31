@@ -4,10 +4,13 @@ def sort_words(sen):
     Returns a list containing all the words in sen but
     sorted in alphabetical order. """
     # your code here
+    L1 = sen.split(' ')
+    L1.sort()
+    return L1
+    
 
+s = "look at this photograph"
+print(sort_words(s))    # prints ['at', 'look', 'photograph', 'this']
 
-# s = "look at this photograph"
-# print(sort_words(s))    # prints ['at', 'look', 'photograph', 'this']
-
-# s = "now this is a story all about how my life got flipped turned upside down"
-# print(sort_words(s))
+s = "now this is a story all about how my life got flipped turned upside down"
+print(sort_words(s))
