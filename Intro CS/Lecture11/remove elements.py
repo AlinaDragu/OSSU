@@ -6,6 +6,8 @@ del(L[1])
 print(L.pop())
 
 
+
+
 #############
 ## Removing elements
 #############
