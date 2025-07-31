@@ -6,7 +6,11 @@ def remove_and_sort(Lin, k):
     If you run out of items to remove, Lin is mutated to an empty list.
     Does not return anything.
     """
-    # Your code here  
+    # Your code here 
+    del Lin[0:k]
+    Lin.sort()
+    
+    
 
 # Examples:
 L = [1,6,3]
