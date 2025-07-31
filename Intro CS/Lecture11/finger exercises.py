@@ -10,7 +10,6 @@ def remove_and_sort(Lin, k):
     del Lin[0:k]
     Lin.sort()
     
-    
 
 # Examples:
 L = [1,6,3]
