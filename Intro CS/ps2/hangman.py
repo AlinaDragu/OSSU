@@ -52,8 +52,10 @@ def has_player_won(secret_word, letters_guessed):
         False otherwise
     """
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
-
+    for letter in secret_word:
+      if letter not in letters_guessed:
+        return False
+    return True
 
 def get_word_progress(secret_word, letters_guessed):
     """
@@ -65,7 +67,7 @@ def get_word_progress(secret_word, letters_guessed):
         which letters in secret_word have not been guessed so far
     """
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    
 
 
 def get_available_letters(letters_guessed):
@@ -141,10 +143,4 @@ if __name__ == "__main__":
 
     ###############
 
-    # SUBMISSION INSTRUCTIONS
-    # -----------------------
-    # It doesn't matter if the lines above are commented in or not
-    # when you submit your pset. However, please run ps2_student_tester.py
-    # one more time before submitting to make sure all the tests pass.
-    pass
 
