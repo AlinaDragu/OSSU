@@ -86,7 +86,12 @@ def get_available_letters(letters_guessed):
       alphabetical order
     """
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    all_letters = string.ascii_lowercase
+    available_letters = []
+    for letter in all_letters:
+      if letter not in letters_guessed:
+        available_letters.append(letter)
+    return ''.join(available_letters)
 
 
 
