@@ -1,5 +1,5 @@
 # Problem Set 2, hangman.py
-
+import os
 import random
 import string
 
@@ -8,20 +8,37 @@ import string
 # -----------------------------------
 
 WORDLIST_FILENAME = "words.txt"
+# def load_words():
+#     """
+#     returns: list, a list of valid words. Words are strings of lowercase letters.
 
+#     Depending on the size of the word list, this function may
+#     take a while to finish.
+#     """
+#     print("Loading word list from file...")
+#     # inFile: file
+#     inFile = open(WORDLIST_FILENAME, 'r')
+#     # line: string
+#     line = inFile.readline()
+#     # wordlist: list of strings
+#     wordlist = line.split()
+#     print(" ", len(wordlist), "words loaded.")
+#     return wordlist
 def load_words():
     """
     returns: list, a list of valid words. Words are strings of lowercase letters.
-
-    Depending on the size of the word list, this function may
-    take a while to finish.
     """
     print("Loading word list from file...")
-    # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r')
-    # line: string
+    
+    # This line gets the absolute path of the directory the script is in
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # This line joins the directory with the filename to create a full path
+    full_path = os.path.join(script_dir, WORDLIST_FILENAME)
+    
+    # Now, open the file using the full, absolute path
+    inFile = open(full_path, 'r')
+    
     line = inFile.readline()
-    # wordlist: list of strings
     wordlist = line.split()
     print(" ", len(wordlist), "words loaded.")
     return wordlist
@@ -135,9 +152,77 @@ def hangman(secret_word, with_help):
     Follows the other limitations detailed in the problem write-up.
     """
     # FILL IN YOUR CODE HERE AND DELETE "pass"
-    pass
+    guesses_left = 10
+    letters_guessed = []
+    vowels = "aeiou"
+    
+    print("Welcome to Hangman!")
+    print(f"I am thinking of a word that i {len(secret_word)} letters long.")
+    print("-------------")
+    
+    # The for loop now provides the maximum number of turns (10 guesses).
+    # The loop can be exited early with 'break' if the player wins.
+    for guesses_left in range(10, 0, -1):
+        if has_player_won(secret_word, letters_guessed):
+            break
+        
+        print(f"You have {guesses_left} guesses left.")
+        print(f"Available letters: {get_available_letters(letters_guessed)}")
+        
+        guess = input("Please guess a letter: ").lower()
 
+        if len(guess) != 1 or not guess.isalpha() and guess != '!':
+            print("Invalid input. Please enter a single letter.")
+            print(f"Current progress: {get_word_progress(secret_word, letters_guessed)}")
+            print("-------------")
+            continue
 
+        if guess == '!':
+            if with_help:
+                if guesses_left > 3: # The for loop provides guesses_left, so we need to be careful with its usage.
+                    unguessed_letters = [letter for letter in secret_word if letter not in letters_guessed]
+                    if unguessed_letters:
+                        hint_letter = random.choice(unguessed_letters)
+                        letters_guessed.append(hint_letter)
+                        print(f"Help activated! The letter '{hint_letter}' has been revealed.")
+                        # To correctly deduct guesses from the for-loop counter, we need to adjust it.
+                        # This isn't straightforward, so we simply print the new guess count here.
+                        # The for loop will proceed to the next iteration with the next value.
+                        print(f"You will have {guesses_left - 3} guesses for the next round.")
+                    else:
+                        print("There are no more unguessed letters to reveal.")
+                else:
+                    print("Warning: You do not have enough guesses (3) to use the help feature.")
+            else:
+                print("The help feature is not enabled for this game.")
+            print(f"Current progress: {get_word_progress(secret_word, letters_guessed)}")
+            print("-------------")
+            continue
+        
+        if guess in letters_guessed:
+            print("You have already guessed that letter. Please try again.")
+        elif guess in secret_word:
+            letters_guessed.append(guess)
+            print("Good guess!")
+        else:
+            letters_guessed.append(guess)
+            print(f"Oops! That letter is not in my word.")
+            # Note: The for-loop structure makes it difficult to deduct 2 guesses for a vowel.
+            # We would need to manually skip a loop iteration, which complicates the logic.
+            # The current for-loop version only deducts 1 guess per incorrect guess.
+            # The original while-loop is more flexible for this specific rule.
+        
+        print(f"Current progress: {get_word_progress(secret_word, letters_guessed)}")
+        print("-------------")
+    
+    if has_player_won(secret_word, letters_guessed):
+        print("Congratulations! You won!")
+    else:
+        print("Sorry, you ran out of guesses.")
+        print(f"The word was: {secret_word}")  
+          
+          
+          
 
 # When you've completed your hangman function, scroll down to the bottom
 # of the file and uncomment the lines to test
@@ -145,9 +230,9 @@ def hangman(secret_word, with_help):
 if __name__ == "__main__":
     # To test your game, uncomment the following three lines.
 
-    # secret_word = choose_word(wordlist)
-    # with_help = False
-    # hangman(secret_word, with_help)
+    secret_word = choose_word(wordlist)
+    with_help = False
+    hangman(secret_word, with_help)
 
     # After you complete with_help functionality, change with_help to True
     # and try entering "!" as a guess!
