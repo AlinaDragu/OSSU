@@ -7,6 +7,7 @@ def count_sqrts(nums_list):
     Returns how many elements in nums_list are exact squares of elements in the same list, including itself.
     """
     # Your code here
+    
     nums_set = set(nums_list) # convert the list to a set for faster lookups
     count = 0 # counter
     for num in nums_list:
