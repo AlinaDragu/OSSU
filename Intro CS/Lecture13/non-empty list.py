@@ -8,6 +8,8 @@ def pairwise_div(Lnum, Ldenom):
     Raise a ValueError if Ldenom contains 0. """
     # your code here
     # challenge: write this with list comprehension!
+    assert len(Lnum)==len(Ldenom), 'lengths diff'
+    assert len(Lnum)!= 0 and len(Ldenom) != 0, 'empty list'
     L = []
     # L = [Lnum[i]/Ldenom[i] for i in range(len(Lnum))]
     # other way
@@ -22,7 +24,7 @@ def pairwise_div(Lnum, Ldenom):
 # For example:
 L1 = [4,5,6]
 L2 = [1,2,3]    
-print(pairwise_div(L1, L2))  # prints [4.0,2.5,2.0]
+# print(pairwise_div(L1, L2))  # prints [4.0,2.5,2.0]
 
 L1 = [4,5,6]
 L2 = [1,0,3]    
@@ -31,7 +33,7 @@ L2 = [1,0,3]
 ## to run after introducing assertions
 L1 = [4,5,6,7,8]
 L2 = [1,8,3]    
-# print(pairwise_div(L1, L2))  # raises an AssertionError
+print(pairwise_div(L1, L2))  # raises an AssertionError
 
 L1 = []
 L2 = []    

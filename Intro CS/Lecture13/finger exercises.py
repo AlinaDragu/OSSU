@@ -9,7 +9,19 @@ def sum_str_lengths(L):
     contain an element that is not a string, raise a ValueError.
     """
     # Your code here  
-
+    length = 0
+    for element in L:
+        if isinstance(element,str):  #check if item is a string using isinstance(item, str)
+            length +=len(element)
+        elif isinstance(element, list):  #If the item is not a string, we check if it's a list
+            for subelement in element:
+                if isinstance(subelement, str):
+                    length += len(subelement)
+                else:
+                    raise ValueError('Strings only')
+        else:
+            raise ValueError('List with only strings')
+    return length
 
 # Examples:
 print(sum_str_lengths(["abcd", ["e", "fg"]]))  # prints 7
