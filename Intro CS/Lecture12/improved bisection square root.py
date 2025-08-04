@@ -17,5 +17,5 @@ def bisection_root_new(x, epsilon):
     print('num_guesses =', num_guesses)
     return guess
 
-# print(bisection_root_new(123, 0.1))
-# print(bisection_root_new(123, 0.00001))
+print(bisection_root_new(123, 0.1))
+print(bisection_root_new(123, 0.00001))
