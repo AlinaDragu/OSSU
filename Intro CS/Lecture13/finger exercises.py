@@ -13,9 +13,9 @@ def sum_str_lengths(L):
     for element in L:
         if isinstance(element,str):  #check if item is a string using isinstance(item, str)
             length +=len(element)
-        elif isinstance(element, list):  #If the item is not a string, we check if it's a list
-            for subelement in element:
-                if isinstance(subelement, str):
+        elif isinstance(element, list):  #if the item is not a string, we check if its a list
+            for subelement in element:  #go through each element
+                if isinstance(subelement, str):  #if its a string, we add its length to length
                     length += len(subelement)
                 else:
                     raise ValueError('Strings only')
