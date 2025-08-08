@@ -3,8 +3,7 @@
 # Written by: sylvant, muneezap, charz, anabell, nhung, wang19k, asinelni, shahul, jcsands
 
 # Problem Set 3
-# Name:
-# Collaborators:
+
 
 # Purpose: Check for similarity between two texts by comparing different kinds of word statistics.
 
