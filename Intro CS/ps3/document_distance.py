@@ -9,22 +9,45 @@
 
 import string
 import math
+import os
 
 
 ### DO NOT MODIFY THIS FUNCTION
+# def load_file(filename):
+#     """
+#     Args:
+#         filename: string, name of file to read
+#     Returns:
+#         string, contains file contents
+#     """
+#     # print("Loading file %s" % filename)
+#     inFile = open(filename, 'r')
+#     line = inFile.read().strip()
+#     for char in string.punctuation:
+#         line = line.replace(char, "")
+#     inFile.close()
+#     return line.lower()
+
 def load_file(filename):
     """
     Args:
         filename: string, name of file to read
     Returns:
-        string, contains file contents
+        string, contains file contents with punctuation removed, all lowercase
     """
-    # print("Loading file %s" % filename)
-    inFile = open(filename, 'r')
-    line = inFile.read().strip()
+    # Get absolute path of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Join with filename to get a full path
+    full_path = os.path.join(script_dir, filename)
+
+    # Read file
+    with open(full_path, 'r') as inFile:
+        line = inFile.read().strip()
+
+    # Remove punctuation
     for char in string.punctuation:
         line = line.replace(char, "")
-    inFile.close()
+        
     return line.lower()
 
 
