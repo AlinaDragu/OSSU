@@ -75,7 +75,13 @@ def get_frequencies(input_iterable):
     Note: 
         You can assume that the only kinds of white space in the text documents we provide will be new lines or space(s) between words (i.e. there are no tabs)
     """
-    pass
+    freq = {}
+    for s in input_iterable:
+        if s in freq:
+            freq[s] += 1
+        else:
+            freq[s] = 1
+    return freq
 
 
 ### Problem 2: Letter Frequencies ###
