@@ -94,7 +94,13 @@ def get_letter_frequencies(word):
         is a letter in word and the corresponding int
         is the frequency of the letter in word
     """
-    pass
+    letters = {}
+    for l in word:
+        if l in letters:
+            letters[l] += 1
+        else:
+            letters[l] = 1
+    return letters
 
 
 ### Problem 3: Similarity ###
