@@ -189,7 +189,15 @@ def get_tf(file_path):
         in the document) / (total number of words in the document)
     * Think about how we can use get_frequencies from earlier
     """
-    pass
+    text = load_file(file_path)
+    words = text_to_list(text)
+    freq = get_frequencies(words)
+    total_words = len(words)
+
+    tf = {}
+    for word, count in freq.items():
+        tf[word] = count / total_words
+    return tf
 
 def get_idf(file_paths):
     """
@@ -203,7 +211,19 @@ def get_idf(file_paths):
     with math.log10()
 
     """
-    pass
+    total_docs = len(file_paths)
+    doc_counts = {}
+
+    for file_path in file_paths:
+        text = load_file(file_path)
+        words = set(text_to_list(text))  # set to avoid double counting in same doc
+        for word in words:
+            doc_counts[word] = doc_counts.get(word, 0) + 1
+
+    idf = {}
+    for word, doc_count in doc_counts.items():
+        idf[word] = math.log10(total_docs / doc_count)
+    return idf
 
 def get_tfidf(tf_file_path, idf_file_paths):
     """
