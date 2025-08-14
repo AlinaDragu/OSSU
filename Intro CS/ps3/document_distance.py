@@ -238,7 +238,16 @@ def get_tfidf(tf_file_path, idf_file_paths):
 
         * TF-IDF(i) = TF(i) * IDF(i)
         """
-    pass
+    tf = get_tf(tf_file_path)
+    idf = get_idf(idf_file_paths)
+
+    tfidf_list = []
+    for word, tf_value in tf.items():
+        tfidf_list.append((word, tf_value * idf[word]))
+
+    # Sort by TF-IDF ascending, then alphabetically if tie
+    tfidf_list.sort(key=lambda x: (x[1], x[0]))
+    return tfidf_list
 
 
 if __name__ == "__main__":
