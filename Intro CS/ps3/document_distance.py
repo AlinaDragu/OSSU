@@ -165,8 +165,17 @@ def get_most_frequent_words(freq_dict1, freq_dict2):
     If multiple words are tied (i.e. share the same highest frequency),
     return an alphabetically ordered list of all these words.
     """
-    pass
-
+    combined = {}
+    for word, count in freq_dict1.items():
+        combined[word] = count
+    for word, count in freq_dict2.items():
+        if word in combined:
+            combined[word] += count
+        else:
+            combined[word] = count
+    max_freq = max(combined.values())
+    most_frequent = [word for word, count in combined.items() if count == max_freq]
+    most_frequent.sort()
 
 ### Problem 5: Finding TF-IDF ###
 def get_tf(file_path):
