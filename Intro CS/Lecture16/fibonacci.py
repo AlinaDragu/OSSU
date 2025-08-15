@@ -6,4 +6,4 @@ def fib_recur(n):
     else:
         return fib_recur(n-1)+fib_recur(n-2)
 
-# print(fib_recur(34))
+print(fib_recur(34))
