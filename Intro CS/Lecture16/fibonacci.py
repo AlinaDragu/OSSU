@@ -38,4 +38,4 @@ def total_recur(L):
     return L[0] + total_recur(L[1:])
 
 test = [30, 40, 50]
-# print(total_recur(test))
+print(total_recur(test))
