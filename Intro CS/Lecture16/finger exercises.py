@@ -9,7 +9,7 @@ def flatten(L):
     elif isinstance(L[0],list):   # if the first element is a list
         return flatten(L[0]) + flatten(L[1:])  # recursive step — it breaks the problem into smaller problems
     else:   # if the first element is not a list
-        return [L[0]] + flatten(L[1:])
+        return [L[0]] + flatten(L[1:])  #single elements are added to the flattened result
 
 # Examples:
 L = [[1,4,[6],2],[[[3]],2],4,5]
