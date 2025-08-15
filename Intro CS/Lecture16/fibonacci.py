@@ -28,3 +28,14 @@ def score_count(x):
 print(score_count(4))  # prints 6
 print(score_count(6))  # prints 20
 print(score_count(13))  # prints 1431
+
+
+## sum of a list, recursive
+def total_recur(L):
+  if L == []:
+    return 0
+  else:
+    return L[0] + total_recur(L[1:])
+
+test = [30, 40, 50]
+# print(total_recur(test))
