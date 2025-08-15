@@ -3,9 +3,11 @@
     
 def total_len_recur(L):
     if len(L) == 1:
-        return ____
+        # "ab"
+        return len(L[0]) 
     else:
-        return ____
+        # "ab" "cde" "fghij"
+        return total_len_recur(L[1:]) + len(L[0])
 
 test = ["ab", "c", "defgh"]
-# print(total_len_recur(test))  # should print 8
+print(total_len_recur(test))  # should print 8
