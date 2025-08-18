@@ -7,7 +7,7 @@ class Circle():
     def get_radius(self):
         """ Returns the radius of self """
         # your code here
-        
+        return self.r
 
     def set_radius(self, radius):
         """ radius is a number
