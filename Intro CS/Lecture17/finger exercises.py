@@ -18,6 +18,7 @@ class Circle():
     def get_area(self):
         """ Returns the area of self using pi = 3.14 """
         # your code here
+        return 3.14 * (self.r **2)
 
     def equal(self, c):
         """ c is a Circle object
