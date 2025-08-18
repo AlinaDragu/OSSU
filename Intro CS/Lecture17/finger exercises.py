@@ -13,6 +13,7 @@ class Circle():
         """ radius is a number
         Changes the radius of self to radius """
         # your code here
+        self.r = radius
 
     def get_area(self):
         """ Returns the area of self using pi = 3.14 """
