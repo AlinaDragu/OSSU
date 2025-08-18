@@ -24,6 +24,8 @@ class Circle():
         """ c is a Circle object
         Returns True if self and c have the same radius value """
         # your code here
+        if self.r == c.r :
+            return True
 
     def bigger(self, c):
         """ c is a Circle object
