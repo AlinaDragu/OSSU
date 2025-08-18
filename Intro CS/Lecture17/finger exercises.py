@@ -31,3 +31,7 @@ class Circle():
         """ c is a Circle object
         Returns self or c, the Circle object with the bigger radius """
         # your code here
+        if self.r > c.r :
+            return self
+        else:
+            return c
