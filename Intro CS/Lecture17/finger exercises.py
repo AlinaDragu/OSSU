@@ -1,13 +1,13 @@
-
-
 class Circle():
     def __init__(self, radius):
         """ Initializes self with radius """
         # your code here
+        self.r = radius
 
     def get_radius(self):
         """ Returns the radius of self """
         # your code here
+        
 
     def set_radius(self, radius):
         """ radius is a number
