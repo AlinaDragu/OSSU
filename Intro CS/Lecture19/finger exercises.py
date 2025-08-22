@@ -6,11 +6,11 @@
 # The second method will be inherited by the subclass. We now want to create a subclass so 
 # that we can add more functionality—the ability to remove elements from the list. 
 
-A Stack will add elements to the list in the same way, but will behave differently when removing an element.
+# A Stack will add elements to the list in the same way, but will behave differently when removing an element.
 
-A stack is a last-in, first-out data structure. Think of a stack of pancakes. 
-As you make pancakes, you create a stack of them with older pancakes going on the bottom and 
-newer pancakes on the top. As you start eating the pancakes, you pick one off the top so 
-you are removing the newest pancake added to the stack. When implementing your Stack class, 
-you will have to think about which end of your list contains the element that has been in the list
-the shortest amount of time. This is the element you will want to remove and return.
+# A stack is a last-in, first-out data structure. Think of a stack of pancakes. 
+# As you make pancakes, you create a stack of them with older pancakes going on the bottom and 
+# newer pancakes on the top. As you start eating the pancakes, you pick one off the top so 
+# you are removing the newest pancake added to the stack. When implementing your Stack class, 
+# you will have to think about which end of your list contains the element that has been in the list
+# the shortest amount of time. This is the element you will want to remove and return.
