@@ -1,7 +1,3 @@
-# Problem Set 4B
-# Name:
-# Collaborators:
-
 import random
 
 
