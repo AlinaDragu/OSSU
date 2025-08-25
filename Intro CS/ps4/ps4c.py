@@ -1,7 +1,3 @@
-# Problem Set 4C
-# Name:
-# Collaborators:
-
 import json
 import ps4b # Importing your work from Part B
 
