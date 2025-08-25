@@ -1,4 +1,3 @@
-
 from tree import Node # Imports the Node object used to construct trees
 
 # Part A0: Data representation
