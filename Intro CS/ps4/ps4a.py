@@ -1,12 +1,10 @@
-# Problem Set 4A
-# Name:
-# Collaborators:
 
 from tree import Node # Imports the Node object used to construct trees
 
 # Part A0: Data representation
 # Fill out the following variables correctly.
 # If correct, the test named test_data_representation should pass.
+
 tree1 = None #TODO
 tree2 = None #TODO
 tree3 = None #TODO
