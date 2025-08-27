@@ -14,11 +14,15 @@ class SimpleFraction(object):
         """ Sets self's numerator to its denominator and vice versa.
             Returns None. """
         # your code here
-        
-        
+        # newdenom = self.num
+        # newnum = self.denom
+        # self.num = newnum
+        # self.denom = newdenom
+        #other way
+        (self.num,self.denom) = (self.denom,self.num)
         
 f1 = SimpleFraction(3,4)
 print(f1.num, f1.denom)   # prints 3 4 
 print(f1.get_inverse())   # prints 1.33333333 (note this one returns value)
-# f1.invert()               # acts on data attributes internally, no return
-# print(f1.num, f1.denom)   # prints 4 3 
+f1.invert()               # acts on data attributes internally, no return
+print(f1.num, f1.denom)   # prints 4 3 
