@@ -18,11 +18,11 @@ class Coordinate(object):
         return "<" + str(self.x) + "," + str(self.y) + ">"
 
 
-
 # Add code to the init method to check that 
 # * the type of center is a Coordinate obj and 
 # * the type of radius is an int. 
 # If either are not these types, raise a ValueError.
+
 class Circle(object):
     def __init__(self, center, radius):
         if type(center) != Coordinate :
