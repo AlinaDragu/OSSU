@@ -11,10 +11,13 @@ class Fraction(object):
     def __str__(self):
         """ Returns a string representation of self """
         # modify this
-        return str(self.num) + "/" + str(self.denom)
+        if self.denom == 1:
+            return str(self.num)
+        else:
+            return str(self.num) + "/" + str(self.denom)
 
  
 a = Fraction(1,4)
 b = Fraction(3,1)
-# print(a)     # prints 1/4
-# print(b)     # prints 3
+print(a)     # prints 1/4
+print(b)     # prints 3
