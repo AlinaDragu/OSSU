@@ -1,5 +1,6 @@
 # Modify the code to return a Fraction object when denominator is 1
-lass Fraction(object):
+
+class Fraction(object):
     def __init__(self, num, denom):
         """ num and denom are integers """
         self.num = num
@@ -13,7 +14,7 @@ lass Fraction(object):
             return None
         elif self.denom == 1:
             # modify this
-            return self.num
+            return Fraction(self.num,1)
         else:
             greatest_common_divisor = gcd(self.num, self.denom)
             top = int(self.num/greatest_common_divisor)
@@ -27,5 +28,5 @@ lass Fraction(object):
     
 f1 = Fraction(5,1)
 f1r = f1.reduce()
-# print(f1r)          # prints 5/1 not 5
-# print(type(f1r))    # prints <class '__main__.Fraction'>
+print(f1r)          # prints 5/1 not 5
+print(type(f1r))    # prints <class '__main__.Fraction'>
