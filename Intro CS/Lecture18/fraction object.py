@@ -1,0 +1,1 @@
+# Modify the code to return a Fraction object when denominator is 1
