@@ -18,8 +18,10 @@ class SimpleFraction(object):
         # newnum = self.denom
         # self.num = newnum
         # self.denom = newdenom
+        
         #other way
         (self.num,self.denom) = (self.denom,self.num)
+        
         
 f1 = SimpleFraction(3,4)
 print(f1.num, f1.denom)   # prints 3 4 
