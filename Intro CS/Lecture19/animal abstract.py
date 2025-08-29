@@ -1,3 +1,5 @@
+# Animal abstract data type 
+
 class Animal(object):
     def __init__(self, age):
         self.age = age
