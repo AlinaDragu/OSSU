@@ -17,11 +17,11 @@ class Animal(object):
 
 # #default parameters with methods        
 a = Animal(4)
-# print(a)
+print(a)
 b = Animal(6)
-# print(b)
-# print(a.age)
-# print(a.get_age())
+print(b)
+print(a.age)
+print(a.get_age())
 
 # a.set_name("fluffy")
 # print(a.name)
