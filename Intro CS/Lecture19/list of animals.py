@@ -37,7 +37,7 @@ def make_animals(L1, L2):
 
 L1 = [2,5,1]
 L2 = ["blobfish", "crazyant", "parafox"]
-# animals = make_animals(L1, L2)
-# print(animals)     # note this prints a list of animal objects
-# for i in animals:  # this prints the indivdual animals
-#     print(i)
+animals = make_animals(L1, L2)
+print(animals)     # note this prints a list of animal objects
+for i in animals:  # this prints the indivdual animals
+    print(i)
