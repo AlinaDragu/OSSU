@@ -60,6 +60,6 @@ c1.set_name("furball")
 c2 = Cat(1)
 c2.set_name("fluffsphere")
 
-# d = {p1:c1, p2:c2}
-# make_pets(d)  # prints ana:furball
-       #        james:fluffsphere
+d = {p1:c1, p2:c2}
+make_pets(d)  # prints ana:furball
+#               james:fluffsphere
