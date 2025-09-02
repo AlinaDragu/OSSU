@@ -27,6 +27,7 @@ class Container(object):
         Returns the length of the container list
         """
         # Your code here
+        return len(self.myList)
 
     def add(self, elem):
         """
@@ -34,6 +35,7 @@ class Container(object):
         you add to consistent. Does not return anything
         """
         # Your code here
+        self.myList.append(elem)
 
 class Queue(Container):
     """
