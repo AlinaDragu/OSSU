@@ -47,3 +47,6 @@ class Queue(Container):
         Returns the element removed or None if the stack contains no elements
         """
         # Your code here
+        if not self.myList:
+            return None
+        return self.myList.pop(0)
