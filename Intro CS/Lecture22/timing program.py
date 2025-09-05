@@ -1,8 +1,6 @@
 ## -------------------------------------------------- ##
 ## EXAMPLE: timing a program
 ## -------------------------------------------------- ##
-import time
-import math
 
 ## define two functions
 def convert_to_km(m):
