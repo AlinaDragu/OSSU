@@ -1,5 +1,4 @@
-# Question 1: Choose the worst case asymptotic
-# order of growth (upper and lower bound) for the following function. 
+# Question 1: Choose the worst case asymptotic order of growth (upper and lower bound) for the following function. 
 # Assume n = a.
 
 def running_product(a):
@@ -10,3 +9,7 @@ def running_product(a):
         if product == a:
             return True
     return False
+
+
+# Question 2: Choose the worst case asymptotic order of growth (upper and lower bound) for the following function. 
+# Assume n = len(L).
