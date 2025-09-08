@@ -25,3 +25,6 @@ def tricky_f(L, L2):
         if e2 in L:
             inL2 = True
     return inL and inL2
+
+
+#Question 3: Choose the worst-case asymptotic order of growth (upper and lower bound) for the following function.
