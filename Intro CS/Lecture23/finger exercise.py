@@ -28,3 +28,11 @@ def tricky_f(L, L2):
 
 
 #Question 3: Choose the worst-case asymptotic order of growth (upper and lower bound) for the following function.
+
+def sum_f(n):
+    """ n > 0 """
+    answer = 0
+    while n > 0:
+        answer += n%10
+        n = int(n/10)
+    return answer
