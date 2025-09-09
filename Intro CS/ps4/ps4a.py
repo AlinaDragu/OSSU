@@ -4,9 +4,17 @@ from tree import Node # Imports the Node object used to construct trees
 # Fill out the following variables correctly.
 # If correct, the test named test_data_representation should pass.
 
-tree1 = None #TODO
-tree2 = None #TODO
-tree3 = None #TODO
+tree1 = Node(1) # Just a single node
+tree2 = Node(2, Node(3), Node(4))  #   2
+                                   #  / \
+                                   # 3   4
+tree3 = Node(10, Node(5, Node(2), Node(7)), Node(15, None, Node(20)))
+#        10
+#       /  \
+#      5    15
+#     / \     \
+#    2   7     20
+
 
 def find_tree_height(tree):
     '''
