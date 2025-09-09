@@ -105,15 +105,15 @@ class PlaintextMessage(Message):
 
         Returns: (list of integers) the new one time pad
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
-
+        return [random.randrange(0, 110) for _ in self.text]
+    
     def get_pad(self):
         '''
         Used to safely access your one time pad outside of the class
 
         Returns: (list of integers) a COPY of your pad
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        return self.pad[:]
 
     def get_ciphertext(self):
         '''
@@ -121,7 +121,7 @@ class PlaintextMessage(Message):
 
         Returns: (string) the ciphertext
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        return self.ciphertext
 
     def change_pad(self, new_pad):
         '''
@@ -133,7 +133,10 @@ class PlaintextMessage(Message):
 
         Returns: nothing
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        if len(new_pad) != len(self.text):
+            raise ValueError("Pad length must equal message length")
+        self.pad = new_pad[:]
+        self.ciphertext = self.apply_pad(self.pad)
 
 
 class EncryptedMessage(Message):
