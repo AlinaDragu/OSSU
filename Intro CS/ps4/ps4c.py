@@ -76,7 +76,25 @@ def decrypt_message_try_pads(ciphertext, pads):
 
     Returns: (PlaintextMessage) A message with the decrypted ciphertext and the best pad
     '''
-    raise NotImplementedError  # delete this line and replace with your code here
+    wordlist = load_words(WORDLIST_FILENAME)
+    best_message = None
+    max_valid_words = -1
+
+    for pad in pads:
+        try:
+            decrypted = ciphertext.decrypt_message(pad)
+            words = decrypted.get_text().split()
+            valid_count = sum(1 for w in words if is_word(wordlist, w))
+
+            # Keep last one in case of tie
+            if valid_count >= max_valid_words:
+                max_valid_words = valid_count
+                best_message = decrypted
+        except Exception:
+            continue  # Skip invalid pads
+
+    return best_message
+
 
 
 def decode_story():
