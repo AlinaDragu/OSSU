@@ -1,20 +1,76 @@
 import json
 import ps4b # Importing your work from Part B
+import json
+import os
 
+# ### HELPER CODE ###
+# def load_words(file_name):
+#     '''
+#     file_name (string): the name of the file containing
+#     the list of words to load
+
+#     Returns: a list of valid words. Words are strings of lowercase letters.
+
+#     Depending on the size of the word list, this function may
+#     take a while to finish.
+#     '''
+#     # inFile: file
+#     with open(file_name, 'r') as inFile:
+#         # wordlist: list of strings
+#         wordlist = []
+#         for line in inFile:
+#             wordlist.extend([word.lower() for word in line.split(' ')])
+#         return wordlist
+
+
+# def is_word(word_list, word):
+#     '''
+#     Determines if word is a valid word, ignoring
+#     capitalization and punctuation
+
+#     word_list (list): list of words in the dictionary.
+#     word (string): a possible word.
+
+#     Returns: True if word is in word_list, False otherwise
+
+#     Example:
+#     >>> is_word(word_list, 'bat') returns
+#     True
+#     >>> is_word(word_list, 'asdf') returns
+#     False
+#     '''
+#     word = word.strip(" !@#$%^&*()-_+={}[]|\:;'<>?,./\"").lower()
+#     return word in word_list
+
+
+# def get_story_string():
+#     """
+#     Returns: a story in encrypted text.
+#     """
+#     f = open("story.txt", "r")
+#     story = str(f.read())
+#     f.close()
+#     return story[:-1]
+
+
+# def get_story_pads():
+#     with open('pads.txt') as json_file:
+#         return json.load(json_file)
+
+
+# WORDLIST_FILENAME = 'words.txt'
+# ### END HELPER CODE ###
 ### HELPER CODE ###
+
+# Get the absolute path to the folder where this script lives
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 def load_words(file_name):
     '''
-    file_name (string): the name of the file containing
-    the list of words to load
-
-    Returns: a list of valid words. Words are strings of lowercase letters.
-
-    Depending on the size of the word list, this function may
-    take a while to finish.
+    Loads words from a file and returns them as a list.
     '''
-    # inFile: file
-    with open(file_name, 'r') as inFile:
-        # wordlist: list of strings
+    file_path = os.path.join(BASE_DIR, file_name)
+    with open(file_path, 'r') as inFile:
         wordlist = []
         for line in inFile:
             wordlist.extend([word.lower() for word in line.split(' ')])
@@ -25,17 +81,6 @@ def is_word(word_list, word):
     '''
     Determines if word is a valid word, ignoring
     capitalization and punctuation
-
-    word_list (list): list of words in the dictionary.
-    word (string): a possible word.
-
-    Returns: True if word is in word_list, False otherwise
-
-    Example:
-    >>> is_word(word_list, 'bat') returns
-    True
-    >>> is_word(word_list, 'asdf') returns
-    False
     '''
     word = word.strip(" !@#$%^&*()-_+={}[]|\:;'<>?,./\"").lower()
     return word in word_list
@@ -45,18 +90,20 @@ def get_story_string():
     """
     Returns: a story in encrypted text.
     """
-    f = open("story.txt", "r")
-    story = str(f.read())
-    f.close()
-    return story[:-1]
+    file_path = os.path.join(BASE_DIR, "story.txt")
+    with open(file_path, "r") as f:
+        story = str(f.read())
+    return story.rstrip()  # strip trailing newlines/spaces safely
 
 
 def get_story_pads():
-    with open('pads.txt') as json_file:
+    file_path = os.path.join(BASE_DIR, "pads.txt")
+    with open(file_path) as json_file:
         return json.load(json_file)
 
 
-WORDLIST_FILENAME = 'words.txt'
+WORDLIST_FILENAME = os.path.join(BASE_DIR, "words.txt")
+
 ### END HELPER CODE ###
 
 
