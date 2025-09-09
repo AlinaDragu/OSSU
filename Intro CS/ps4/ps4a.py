@@ -43,7 +43,25 @@ def is_heap(tree, compare_func):
         True if the entire tree satisfies the compare_func function; False otherwise
     '''
     # TODO: Remove pass and write your code here
-    pass
+    if tree is None:
+        return True
+
+    # Check left child
+    if tree.left:
+        if not compare_func(tree.left.value, tree.value):
+            return False
+        if not is_heap(tree.left, compare_func):
+            return False
+
+    # Check right child
+    if tree.right:
+        if not compare_func(tree.right.value, tree.value):
+            return False
+        if not is_heap(tree.right, compare_func):
+            return False
+
+    return True
+
 
 
 
