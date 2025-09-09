@@ -175,3 +175,14 @@ class EncryptedMessage(Message):
         # decrypt by applying the *negative* shift
         decrypted_text = ''.join(self.shift_char(ch, -pad[i]) for i, ch in enumerate(self.text))
         return PlaintextMessage(decrypted_text, pad)
+
+
+if __name__ == "__main__":
+    msg = PlaintextMessage("HELLO WORLD")
+    print("Plaintext:", msg.get_text())
+    print("Pad:", msg.get_pad())
+    print("Ciphertext:", msg.get_ciphertext())
+
+    encrypted = EncryptedMessage(msg.get_ciphertext())
+    decrypted = encrypted.decrypt_message(msg.get_pad())
+    print("Decrypted:", decrypted.get_text())
