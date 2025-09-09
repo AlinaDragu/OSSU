@@ -40,7 +40,11 @@ class Message(object):
 
         Returns: (string) the shifted character with ASCII value in the range [32, 126]
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        ascii_val = ord(char)
+        base = 32
+        max_range = 95  # because 126 - 32 + 1 = 95 printable chars
+        shifted_val = base + ((ascii_val - base + shift) % max_range)
+        return chr(shifted_val)
 
     def apply_pad(self, pad):
         '''
@@ -53,7 +57,7 @@ class Message(object):
 
         Returns: (string) The ciphertext produced using the one time pad
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        return ''.join(self.shift_char(ch, pad[i]) for i, ch in enumerate(self.text))
 
 
 class PlaintextMessage(Message):
@@ -71,7 +75,16 @@ class PlaintextMessage(Message):
                 or generated randomly using self.generate_pad() if pad is None)
             the ciphertext (string, input_text encrypted using the pad)
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        super().__init__(input_text)
+
+        if pad is None:
+            self.pad = self.generate_pad()
+        else:
+            if len(pad) != len(self.text):
+                raise ValueError("Pad length must equal message length")
+            self.pad = pad[:]
+
+        self.ciphertext = self.apply_pad(self.pad)
 
     def __repr__(self):
         '''
