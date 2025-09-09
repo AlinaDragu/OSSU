@@ -68,4 +68,8 @@ def is_heap(tree, compare_func):
 if __name__ == '__main__':
     # You can use this part for your own testing and debugging purposes.
     # IMPORTANT: Do not erase the pass statement below if you do not add your own code
-    pass
+    # Example usage
+    import operator
+    # For max heap: child < parent
+    print(is_heap(tree3, lambda child, parent: child < parent))  # False
+    print(find_tree_height(tree3))  # Should be 3
