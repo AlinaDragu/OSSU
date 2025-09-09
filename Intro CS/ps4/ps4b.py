@@ -11,7 +11,7 @@ class Message(object):
         a Message object has one attribute:
             the message text
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
+        self.text = input_text
 
     def __repr__(self):
         '''
@@ -28,8 +28,8 @@ class Message(object):
 
         Returns: (string) the message text
         '''
-        raise NotImplementedError  # delete this line and replace with your code here
-
+        return self.text
+    
     def shift_char(self, char, shift):
         '''
         Used to shift a character as described in the pset handout
