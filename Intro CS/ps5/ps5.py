@@ -1,9 +1,3 @@
-"""
-# Problem Set 5
-# Name:
-# Collaborators:
-"""
-
 from PIL import Image, ImageFont, ImageDraw
 import numpy
 
