@@ -2,6 +2,7 @@ from PIL import Image, ImageFont, ImageDraw
 import numpy
 
 
+
 def make_matrix(color):
     """
     Generates a transformation matrix for the specified color.
