@@ -143,7 +143,11 @@ def extract_end_bits(num_end_bits, pixel):
     Returns:
         The num_end_bits of pixel, as an integer (BW) or tuple of integers (RGB).
     """
-    pass
+    mask = (1 << num_end_bits) - 1
+    if isinstance(pixel, tuple):
+        return tuple([val & mask for val in pixel])
+    else:
+        return pixel & mask
 
 
 def reveal_bw_image(filename):
@@ -154,7 +158,12 @@ def reveal_bw_image(filename):
     Returns:
         result: an Image object containing the hidden image
     """
-    pass
+    im = Image.open(filename)
+    pixels = list(im.getdata())
+    hidden_pixels = [extract_end_bits(1, p) * 255 for p in pixels]  # scale 0/1 to 0/255
+    hidden_img = Image.new('L', im.size)
+    hidden_img.putdata(hidden_pixels)
+    return hidden_img
 
 
 def reveal_color_image(filename):
@@ -165,7 +174,18 @@ def reveal_color_image(filename):
     Returns:
         result: an Image object containing the hidden image
     """
-    pass
+    im = Image.open(filename)
+    pixels = list(im.getdata())
+    hidden_pixels = []
+
+    for p in pixels:
+        hidden = extract_end_bits(3, p)
+        scaled = tuple([val << 5 for val in hidden])  # shift 3 bits to top range
+        hidden_pixels.append(scaled)
+
+    hidden_img = Image.new('RGB', im.size)
+    hidden_img.putdata(hidden_pixels)
+    return hidden_img
 
 
 def reveal_image(filename):
