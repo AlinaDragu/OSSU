@@ -64,7 +64,9 @@ def img_to_pix(filename):
                  in form (R,G,B) such as [(0,0,0),(255,255,255),(38,29,58)...] for RGB image
                  in form L such as [60,66,72...] for BW image
     """
-    pass
+    im = Image.open(filename)
+    pixels = list(im.getdata())
+    return pixels
 
 
 def pix_to_img(pixels_list, size, mode):
@@ -83,7 +85,9 @@ def pix_to_img(pixels_list, size, mode):
     returns:
         img: Image object made from list of pixels
     """
-    pass
+    im = Image.new(mode, size)
+    im.putdata(pixels_list)
+    return im
 
 
 def filter(pixels_list, color):
