@@ -167,6 +167,7 @@ def reveal_bw_image(filename):
     hidden_img.putdata(hidden_pixels)
     return hidden_img
 
+
 def reveal_color_image(filename):
     """
     Extracts the 3 LSBs for each pixel in the RGB input image. 
@@ -237,6 +238,7 @@ def draw_kerb(filename, kerb):
 
 
 def main():
+    
     # Example usage (Part 1)
     img_path = os.path.join(BASE_DIR, "image_15.png")
     im = Image.open(img_path)
@@ -257,6 +259,7 @@ def main():
 
     hidden2 = reveal_image("hidden2.bmp")
     hidden2.show()
+    
 
 if __name__ == '__main__':
     main()
