@@ -1,7 +1,8 @@
 from PIL import Image, ImageFont, ImageDraw
 import numpy
+import os
 
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def make_matrix(color):
     """
@@ -64,10 +65,10 @@ def img_to_pix(filename):
                  in form (R,G,B) such as [(0,0,0),(255,255,255),(38,29,58)...] for RGB image
                  in form L such as [60,66,72...] for BW image
     """
-    im = Image.open(filename)
+    full_path = os.path.join(BASE_DIR, filename)
+    im = Image.open(full_path)
     pixels = list(im.getdata())
     return pixels
-
 
 def pix_to_img(pixels_list, size, mode):
     """
@@ -99,12 +100,12 @@ def filter(pixels_list, color):
     returns: list of pixels in same format as earlier functions,
     transformed by matrix multiplication
     """
-    matrix = np.array(make_matrix(color))
+    matrix = numpy.array(make_matrix(color))
     new_pixels = []
 
     for p in pixels_list:
         if isinstance(p, tuple):  # RGB
-            rgb = np.array(p)
+            rgb = numpy.array(p)
             transformed = matrix.dot(rgb)
             transformed = tuple([int(min(max(v, 0), 255)) for v in transformed])
             new_pixels.append(transformed)
@@ -158,13 +159,13 @@ def reveal_bw_image(filename):
     Returns:
         result: an Image object containing the hidden image
     """
-    im = Image.open(filename)
+    full_path = os.path.join(BASE_DIR, filename)
+    im = Image.open(full_path)
     pixels = list(im.getdata())
-    hidden_pixels = [extract_end_bits(1, p) * 255 for p in pixels]  # scale 0/1 to 0/255
+    hidden_pixels = [((p & 1) * 255) for p in pixels]
     hidden_img = Image.new('L', im.size)
     hidden_img.putdata(hidden_pixels)
     return hidden_img
-
 
 def reveal_color_image(filename):
     """
@@ -174,13 +175,14 @@ def reveal_color_image(filename):
     Returns:
         result: an Image object containing the hidden image
     """
-    im = Image.open(filename)
+    full_path = os.path.join(BASE_DIR, filename)
+    im = Image.open(full_path)
     pixels = list(im.getdata())
     hidden_pixels = []
 
     for p in pixels:
         hidden = extract_end_bits(3, p)
-        scaled = tuple([val << 5 for val in hidden])  # shift 3 bits to top range
+        scaled = tuple([val << 5 for val in hidden])  # shift left for visibility
         hidden_pixels.append(scaled)
 
     hidden_img = Image.new('RGB', im.size)
@@ -199,11 +201,12 @@ def reveal_image(filename):
     Returns:
         result: an Image object containing the hidden image
     """
-    im = Image.open(filename)
+    full_path = os.path.join(BASE_DIR, filename)
+    im = Image.open(full_path)
     if im.mode == '1' or im.mode == 'L':
-        return(reveal_bw_image(filename))
+        return reveal_bw_image(filename)
     elif im.mode == 'RGB':
-        return(reveal_color_image(filename))
+        return reveal_color_image(filename)
     else:
         raise Exception("Invalid mode %s" % im.mode)
 
@@ -217,40 +220,43 @@ def draw_kerb(filename, kerb):
     Output:
         Saves output image to "filename_kerb.xxx"
     """
-    im = Image.open(filename)
-    font = ImageFont.truetype("noto-sans-mono.ttf", 40)
+    full_path = os.path.join(BASE_DIR, filename)
+    im = Image.open(full_path)
+
+    font_path = os.path.join(BASE_DIR, "noto-sans-mono.ttf")
+    font = ImageFont.truetype(font_path, 40)
+
     draw = ImageDraw.Draw(im)
     draw.text((0, 0), kerb, "white", font=font)
+
     idx = filename.find(".")
     new_filename = filename[:idx] + "_kerb" + filename[idx:]
-    im.save(new_filename)
+    out_path = os.path.join(BASE_DIR, new_filename)
+    im.save(out_path)
     return
 
 
 def main():
-    pass
+    # Example usage (Part 1)
+    img_path = os.path.join(BASE_DIR, "image_15.png")
+    im = Image.open(img_path)
+    width, height = im.size
+    pixels = img_to_pix("image_15.png")  # img_to_pix already uses BASE_DIR
 
-    # Uncomment the following lines to test part 1
+    non_filtered_pixels = filter(pixels, 'none')
+    im = pix_to_img(non_filtered_pixels, (width, height), 'RGB')
+    im.show()
 
-    #im = Image.open('image_15.png')
-    #width, height = im.size
-    #pixels = img_to_pix('image_15.png')
+    red_filtered_pixels = filter(pixels, 'red')
+    im2 = pix_to_img(red_filtered_pixels, (width, height), 'RGB')
+    im2.show()
 
-    #non_filtered_pixels = filter(pixels,'none')
-    #im = pix_to_img(non_filtered_pixels, (width, height), 'RGB')
-    # im.show()
+    # Example usage (Part 2)
+    hidden1 = reveal_image("hidden1.bmp")  # reveal_image already uses BASE_DIR
+    hidden1.show()
 
-    #red_filtered_pixels = filter(pixels,'red')
-    #im2 = pix_to_img(red_filtered_pixels,(width,height), 'RGB')
-    # im2.show()
-
-    # Uncomment the following lines to test part 2
-    #im = reveal_image('hidden1.bmp')
-    # im.show()
-
-    #im2 = reveal_image('hidden2.bmp')
-    # im2.show()
-    
+    hidden2 = reveal_image("hidden2.bmp")
+    hidden2.show()
 
 if __name__ == '__main__':
     main()
