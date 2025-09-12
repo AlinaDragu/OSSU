@@ -99,7 +99,18 @@ def filter(pixels_list, color):
     returns: list of pixels in same format as earlier functions,
     transformed by matrix multiplication
     """
-    pass
+    matrix = np.array(make_matrix(color))
+    new_pixels = []
+
+    for p in pixels_list:
+        if isinstance(p, tuple):  # RGB
+            rgb = np.array(p)
+            transformed = matrix.dot(rgb)
+            transformed = tuple([int(min(max(v, 0), 255)) for v in transformed])
+            new_pixels.append(transformed)
+        else:  # Grayscale
+            new_pixels.append(p)
+    return new_pixels
 
 
 def extract_end_bits(num_end_bits, pixel):
